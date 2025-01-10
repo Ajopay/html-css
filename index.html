@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="sytle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    
+  <nav class="navbar">
+    <div class="navdiv">
+        <div class="logo" onclick="refreshPage()">
+            <i class="fa fa-line-chart logo-icon " style="color: white; padding: 3px; font-weight: bold; font-size: 30px;"></i>
+            <a href="#">AjoPay</a>
+            <p class="p">Simplifying Payments, Empowering Progress.</p>
+        </div>
+        <ul>
+            <li><a href="#">FEATURES</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <li><a href="#">API DOCUMENTATION</a></li>
+            <li><a href="#">LOGIN</a></li>
+            <button class="registerDesign"><a href="#">REGISTER</a></button>
+        </ul>
+    </div>
+  </nav>
+
+  <script>
+    function refreshPage() {
+        location.reload();
+    }
+  </script>
 </body>
 </html>
