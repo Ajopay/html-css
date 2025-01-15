@@ -189,7 +189,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -226,3 +226,161 @@ a:hover {
 .appstore:hover {
     background-color: #3e3e3e;
 }
+
+.web{
+    background-color: chocolate;
+    color: #fff;
+}
+
+.section2{
+    background-color: rgba(224, 224, 224);
+    padding: 80px 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini2{
+    align-items: center;
+    justify-content: flex-start; 
+    flex-wrap: wrap; 
+}
+
+.services {
+    text-align: center; 
+    margin: 0 auto; 
+    display: block; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.test{
+    color: rgb(230, 103, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0 auto; 
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+.line{
+    display: flex;
+}
+
+.built {
+    font-size: 20px; 
+    font-family: 'Roboto', 'Open Sans', 'Lato', 'Helvetica', 'Arial', sans-serif;
+    color: black;
+    margin-right: 20px; 
+    margin-top: 20px;
+    text-align: justify; 
+    max-width: 400px;
+    line-height: 1.5; 
+}
+
+
+/* Section Styling */
+.services-section {
+    padding: 40px;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+/* Header Styling */
+.services-header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+}
+/* Testfully designed for you*/
+.services-header .tagline {
+    color: #e66700;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Description Styling */
+.services-description {
+    margin: 20px auto;
+    max-width: 600px;
+    font-size: 20px;
+    color: #555;
+}
+
+/* Service Cards Container */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+
+/* Service Card Styling */
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 300px;
+    height: auto;
+    text-align: left;
+}
+
+/* Card Header Styling */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+.card-header i {
+    font-size: 40px;
+    color: #e66700;
+}
+
+.card-header h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Call-to-Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: #e66700;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #cc5c00;
+}
+
+/* Contact Information */
+.contact {
+    margin-top: 20px;
+    color: white;
+    font: size 10px;
+    background-color: #e66700;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.contact i {
+    margin-right: 5px;
+    text-align: center;
+    
+}
+
+
