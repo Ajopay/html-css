@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AjopayRegister</title>
+  <link rel="stylesheet" href="style.css">
+</head> 
+<body class="register-body">
+
+  <div class="register-section">
+    <a href="index.html" class="back-arrow">
+        &#8592; 
+    </a>
+    <div class="logo-prime">
+        <h1>AjoPay</h1>
+        <p>Simplifying Payments, Empowering Progress.</p>
+    </div>
+    <form class="register-form">
+      <h2>Create Your Personal Account</h2>
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first-name" required>
+      
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" name="surname" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <div class="phone-input">
+        <span>+234</span>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <label for="referral">Referral Code (optional)</label>
+      <input type="text" id="referral" name="referral">
+
+      <label for="support">Support Code (optional)</label>
+      <input type="text" id="support" name="support">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <div class="terms">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">By signing up, you agree with the <a class="underline" href="#">terms and conditions</a> and <a class="underline" href="#">privacy policy</a>.</label>
+      </div>
+
+      <button class="real" type="submit">Create Account</button>
+
+      <p>Have an account? <a href="login.html">Sign In</a></p>
+    </form>
+    
+  </div>
+</body>
+</html>
