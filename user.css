@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: #fff;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    color:  #12ab12;
+  }
+  
+  header .tagline {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+ hr{
+    height: 2px;
+    margin: 20px auto; 
+    width: 80%;
+    background-color:hsl(120, 97%, 30%);
+ }
+  main h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+ 
+  .signup-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .signup-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .signup-form input::placeholder {
+    color: #aaa;
+  }
+  
+
+  .sign {
+    display: flex;
+    align-items: center; 
+    gap: 5px; 
+    margin-bottom: 15px; 
+  }
+  
+  .sign input[type="checkbox"] {
+   
+    width: 18px;
+    height: 18px;
+    accent-color: #12ab12; 
+  }
+  
+  .sign p {
+    margin: 0; 
+    font-size: 14px; 
+    color: black; 
+  }
+  
+  .sign a {
+    text-decoration: none;
+    color: #12ab12;
+    font-weight: bold; 
+  }
+  
+  .sign a:hover {
+    text-decoration: underline; 
+  }
+  
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #12ab12;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color:  #12ab12;
+  }
+  p {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  p a {
+    color: #12ab12;
+    text-decoration: none;
+  }
