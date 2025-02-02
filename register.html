@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AjopayRegister</title>
   <link rel="stylesheet" href="style.css">
-</head> 
+</head>
 <body class="register-body">
-
   <div class="register-section">
     <a href="index.html" class="back-arrow">
         &#8592; 
@@ -18,8 +17,9 @@
     </div>
     <form class="register-form">
       <h2>Create Your Personal Account</h2>
-      <label for="first-name">First Name</label>
-      <input type="text" id="first-name" name="first-name" required>
+
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="first-name" required>
       
       <label for="surname">Surname</label>
       <input type="text" id="surname" name="surname" required>
@@ -42,8 +42,8 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
 
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" id="confirm-password" name="confirm-password" required>
+      <label for="confirmpassword">Confirm Password</label>
+      <input type="password" id="confirmpassword" name="confirm-password" required>
 
       <div class="terms">
         <input type="checkbox" id="terms" required>
@@ -54,7 +54,59 @@
 
       <p>Have an account? <a href="login.html">Sign In</a></p>
     </form>
-    
   </div>
+
+  <script>
+   async function submitForm(event) {
+    event.preventDefault();
+
+    const user = {
+        firstName: document.getElementById('firstname').value,
+        surname: document.getElementById('surname').value,
+        emailAddress: document.getElementById('email').value,
+        phoneNumber: document.getElementById('phone').value,
+        referralCode: document.getElementById('referral').value,
+        supportCode: document.getElementById('support').value,
+        password: document.getElementById("password").value,
+    };
+
+    const confirmPassword = document.getElementById("confirmpassword").value;
+    const termsChecked = document.getElementById("terms").checked;
+
+    // Validation
+    if (!termsChecked) {
+        alert('You must agree to the terms and conditions.');
+        return;
+    }
+
+    if (user.password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:8080/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (response.ok) {
+            alert('Registration Successful!');
+            window.location.href = 'index.html'; // Redirect after success
+        } else {
+            const errorData = await response.json();
+            alert(`Error: ${errorData.message || 'Please try again'}`);
+        }
+    } catch (error) {
+        alert('An error occurred: ' + error.message);
+    }
+}
+
+document.querySelector('.register-form').addEventListener('submit', submitForm);
+
+  </script>
 </body>
 </html>
