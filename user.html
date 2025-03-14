@@ -1,101 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="user.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/user.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-          <h1> 
-            <img src="images/ajo.png" alt="AjoPay Logo" class="logo" width="30px"> AjoPay
-          </h1>
-          <p class="tagline">Pay with convenience</p>
-        </header>
-        <hr>
-        <main>
-            <h2>Create your personal account</h2>
-            <form action="#" method="post" class="signup-form">
-              <div class="form-group">
-                <input type="text" id="firstName" name="first-name" placeholder="First name" required>
-              </div>
-              <div class="form-group">
-                <input type="text" id="lastName" name="lastname" placeholder="Last name" required>
-              </div>
-              <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
-              </div>
+      <header>
+        <h1>
+          <img
+            src="images/ajo.png"
+            alt="AjoPay Logo"
+            class="logo"
+            width="30px"
+          />
+          AjoPay
+        </h1>
+        <p class="tagline">Pay with convenience</p>
+      </header>
+      <hr />
+      <main>
+        <h2>Create your personal account</h2>
+        <form action="#" method="post" class="signup-form" id="signupForm">
+          <div class="form-group">
+            <input
+              type="text"
+              id="firstName"
+              name="first-name"
+              placeholder="First name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="lastName"
+              name="lastname"
+              placeholder="Last name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+          </div>
 
-              <div class="form-group">
-                <input type="tel" id="phone" name="phone" placeholder="234" required>
-              </div>
-             
-              <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
-              </div>
+          <div class="form-group">
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="234"
+              required
+            />
+          </div>
 
-              <div class="form-group">
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
-              </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
 
-              <div class="sign">
-                <input type="checkbox" id="subscribe">
-                <p>
-                  By signing up, you agree with the 
-                  <a href="#">terms and conditions</a> and 
-                  <a href="#">privacy policy</a>.
-                </p>
-              </div>
-              
-              <button type="submit" class="submit-button">Create Account</button>
-            </form>
-          </main>
-         <p>Have an account? <a href="#">Sign in</a></p> 
+          <div class="form-group">
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirm password"
+              required
+            />
+          </div>
+
+          <div class="sign">
+            <input type="checkbox" id="subscribe" required />
+            <p>
+              By signing up, you agree with the
+              <a href="#">terms and conditions</a> and
+              <a href="#">privacy policy</a>.
+            </p>
+          </div>
+          <p id="error_msg" style="color: red"></p>
+          <button type="submit" class="submit-button" id="signupButton">
+            <span id="btnText">Create Account</span>
+            <span class="spinner" id="spinner"></span>
+          </button>
+
+          <!-- <button type="submit" class="submit-button">Create Account</button> -->
+        </form>
+      </main>
     </div>
 
     <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", submitForm);
+      const signupForm = document.getElementById("signupForm");
+      const signupButton = document.getElementById("signupButton");
+
       async function submitForm(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
+
+        signupButton.classList.add("loading");
+        signupButton.disabled = true;
 
         const user = {
-          firstName: document.getElementById('firstName').value,
-          lastName: document.getElementById('lastName').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          password: document.getElementById('password').value,
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          email: document.getElementById("email").value,
+          phoneNumber: document.getElementById("phone").value,
+          password: document.getElementById("password").value,
+          confirmpassword: document.getElementById("confirm-password").value,
         };
 
-        // Ensure passwords match
-        const confirmPassword = document.getElementById('confirm-password').value;
-        if (user.password !== confirmPassword) {
-          alert('Passwords do not match!');
-          
+        if (user.password !== user.confirmpassword) {
+          alert("Passwords do not match!");
+          signupButton.classList.remove("loading");
+          signupButton.disabled = false;
           return;
         }
 
         try {
-          const response = await fetch('http://localhost:8080/signup', {
-            method: 'POST',
+          const response = await fetch("http://localhost:8080/signup", {
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
           });
 
-          if (response.ok) {
-            alert('Registration successful');
-            window.location.href = '/dash.html';
+          signupButton.classList.remove("loading");
+          signupButton.disabled = false;
+          const data = await response.json();
 
+          if (response.ok) {
+            if (data.message === "Email Already Exists") {
+              const message = data.message;
+              const error_msg = document.getElementById("error_msg");
+              error_msg.innerHTML = "*" + message + "*";
+              // alert(message)
+            } else {
+              const data = await response.json();
+              alert("Welcome, " + data.firstName + "!");
+              localStorage.setItem("firstName", data.firstName);
+              window.location.href = "login.html";
+            }
           } else {
-            alert('Error, please try again.');
+            const errorMsg = await response.text();
+            alert("Signup failed: " + errorMsg);
           }
         } catch (error) {
-          alert('An error occurred: ' + error.message);
+          signupButton.classList.remove("loading");
+          signupButton.disabled = false;
+          alert("An error occurred: " + error.message);
         }
       }
-      document.querySelector('.signup-form').addEventListener('submit', submitForm);
     </script>
-</body>
+  </body>
 </html>

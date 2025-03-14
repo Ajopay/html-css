@@ -1,0 +1,107 @@
+
+        form {
+          
+            padding: 25px;
+            border-radius: 8px;
+            
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 0px; 
+        }
+
+        .form-group label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 5px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            font-size: 16px;
+            background-color: transparent;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-bottom: 2px solid #12ab12;
+        }
+
+        .placeholder-text {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .otp-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.otp-input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    position: relative;
+}
+
+.otp-input:focus {
+    border-color: #12ab12;
+}
+
+
+.otp-input:valid {
+    animation: dash-in 0.4s ease forwards;
+}
+
+
+.pin-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.pin-input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    position: relative;
+}
+
+.pin-input:focus {
+    border-color: #12ab12;
+}
+
+
+.pin-input:valid {
+    animation: dash-in 0.4s ease forwards;
+}
+
+@keyframes dash-in {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}

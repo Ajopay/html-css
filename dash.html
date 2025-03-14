@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dash.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dash.css">
+    <link rel="stylesheet" href="css/transfer.css">
+    <link rel="stylesheet" href="css/fund.css">
+    <link rel="stylesheet" href="css/request.css"> 
+    <link rel="stylesheet" type="" href="css/modal.css">
+    <link rel="stylesheet" href="css/savings.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    
-   
     <div class="container">
-       
         <aside class="sidebar">
-            <h2>Ajopay</h2>
+            <img src="images/ajo (1).png" width="30px" class="logo">
+<h2 class="brand-name">Ajopay</h2>
+
+            
             <nav>
                 <div class="links">
-                    <a href="#" class="app-link">
+                    <a href="dash.html" class="app-link" id="payment-link">
                       <i class="fa-solid fa-wallet"></i>
                       <span class="wallet">Payment</span>
                     </a>
@@ -56,7 +61,7 @@
                         <span>Activity Log</span>
                     </a>
         
-                    <a href="#" class="apps-link">
+                    <a href="#" class="apps-link" onclick="logout()">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <span>Logout</span>
                     </a>
@@ -84,7 +89,7 @@
                                 <i class="fa-regular fa-user" style="color: black;"></i>
                             </a>
                         </div>
-                        <p class="user-name">Nofisat</p>
+                        <p class="user-name" id="firstName"> </p>
                         <!--
 <i class="fa-solid fa-angle-down"></i>-->
              
@@ -93,104 +98,569 @@
              </div>
              </div>
              </header>   
-                <div class="cont">
-                    <a href="#" class="apps">
-                      <i class="fa-regular fa-paper-plane "style=" color:black;"></i>
-                      <span>Transfer</span>
-                  </a>
-      
-                  <a href="#" class="apps">
-                    <i class="fa-solid fa-down-long"style=" color:black;"> </i>
-                      <span>Receive</span>
-                  </a>
-                  <a href="#" class="apps">
-                    <i class="fa-solid fa-down-long" style=" color:black;"></i>
-                      <span>Request</span>
-                  </a>
-            
-                 
-                   </div>
+             <div class="main-container"> 
+                <div class="left-panel">
+          <div class="cont">
                
-
-                   <main>
-                    <div class="main-container"> 
-                        <section class="account">
-                            <div class="balance-card">
-                                <h3>Hello Nofisat</h3>
-                                <div class="balance-info">
-                                    <p class="acc left">Available Balance <i class="fa-solid fa-question" style="color: #12ab12;"></i>
-                                        <br><strong id="strong">NGN 0.00</strong>
-                                    </p>
-                                    <p class="acc right">Fund Account<br><strong>2012244830</strong></p>
-                                    <p class="acc left">Total Balance <i class="fa-solid fa-question" style="color: #12ab12;"></i>
-                                        <br><strong id="strong">NGN 0.00</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
+      
             
-                <aside class="right-panel">
-                   
-                    <div class="service-list">
-                        <button class="service-btn">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span>Utility Bills</span>
-                        </button>
-                        <button class="service-btn">
-                            <i class="fa-solid fa-tv"></i>
-                            <span>Cable</span>
-                        </button>
-                        <button class="service-btn">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                            <span>Airtime</span>
-                        </button>
-                        <button class="service-btn">
-                            <i class="fa-solid fa-wifi"></i>
-                            <span>Data</span>
-                        </button>
-                        <button class="service-btn">
-                            <i class="fa-solid fa-chess"></i>
-                            <span>Betting</span>
-                        </button>
-                        <button class="service-btn">
-                            <i class="fa-solid fa-plus-circle"></i>
-                            <span>Epin</span>
-                        </button>
-                    </div>
-                    
-                    <div class="download">
-                        <p>Download our App</p>
-                        <h6>Download our mobile aplication for better <br>
-                        experience and to receive custom notifications in real time</h6>
+             <a class="apps" id="transfer" onclick="openTransferModal()">
+            
+            <span>    
+                 <i class="fa-regular fa-paper-plane" style="color:black;"></i>
+                Transfer
+            </span>
+        </a>
+        
+        
+            <div class="modal_overlay"  id="transfer_modal">
+                <div class="modal_content">
+                    <div class="modal">
+                        <h2>Transfer to Banks</h2>
                         
-                        <a href="#" class="ap-link">
-                            <i class="fa-brands fa-apple"></i>
-                        <span class="apple">Download on the<br>  App Store</span>
-                        </a>
-                        <a href="#" class="play-link">
-                            <i class="fa-brands fa-google-play"></i>
-                            <span class="playstore">Get it on the<br> Play Store</span>
-                        </a>
+                        <p class="close-btn" onclick="closeTransferModal()">x</p>
                     </div>
                     
-                </div>
-                </aside>
-                <section class="transaction">
-                    <div class="search-box">
-                        <h2>Transaction History</h2>
-                        <div class="search-input">
-                            <input type="text" placeholder="Search by reference id">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                    <form action="#" method="POST" id="transfer-form">
+                       
+                        <!-- <div class="form-group">
+                            <input type="text" id="accountNumber" placeholder="" readonly>
+                            <span class="placeholder-text">Account Number of Sender</span>
+                        </div>  -->
+                         <h4 id="accountNumber" style="color: #333; font-family: Arial, 
+                         sans-serif; font-size: 18px; font-weight: bold; box-sizing: border-box; padding: 10px; border-radius: 5px;
+                          background-color: #f7f7f7; border: 1px solid #ccc; width: fit-content; display: inline-block;"></h4>
+                        <div class="form-transfer">
+                            <label for="account-number"></label>
+                        <input type="text" id="account-number" placeholder="">
+                        <span class="placeholder-text">Account Number of Recipient</span>
                         </div>
+                        <div class="form-transfer">
+                             <label for="account-name"></label>
+                            <input type="text" id="account-name" placeholder="">
+                            <span class="placeholder-text">Account Name of Recipient</span>
+                        </div>
+                       
+                        <div class="form-transfer"> <label for="select-bank"></label>
+                            <select id="select-bank">
+                                <option value="">Select Recipient Bank</option>
+                                <option value="access">Access Bank</option>
+                                <option value="gtb">GTBank</option>
+                                <option value="zenith">Zenith Bank</option>
+                                <option value="firstbank">First Bank</option>
+                                <option value="uba">UBA</option>
+                                <option value="fidelity">Fidelity Bank</option>
+                                <option value="providus">Providus Bank</option>
+                                <option value="fcmb">First City Monument Bank (FCMB)</option>
+                                <option value="union">Union Bank</option>
+                            </select></div>
+                       
+                        <div class="form-transfer"> 
+                            <label for="select-account"></label>
+                            <input type="text" id="amount" placeholder="">
+                        <span class="placeholder-text"> ₦ 100.00 -5,000,000.00</span>
+                    </div>
+
+                       
+
+                        <div class="form-transfer"> 
+                        <label for="note"></label>
+                        <input type="text" id="note" placeholder="">
+                        <span class="placeholder-text">Narration (optional)</span>
+                        </div>
+
+                        <div class="form-transfer"> 
+                        <label for="pin">Enter PIN</label>
+                        <div class="pin-container">
+                            <input type="text" id="pin1" class="pin-input" maxlength="1" placeholder="-" />
+                            <input type="text" id="pin2" class="pin-input" maxlength="1" placeholder="-" />
+                            <input type="text" id="pin3" class="pin-input" maxlength="1" placeholder="-" />
+                            <input type="text" id="pin4" class="pin-input" maxlength="1" placeholder="-" />
+                        </div>
+                        </div>
+                        <button type="submit" class="next-btn" id="submit">Pay</button>
+                    </form>
+                </div>
+            </div>
+            
+    
+       
+        <a href="#" class="apps" id="fund" onclick="openFundModal()">
+            <span>
+                <i class="fa-solid fa-down-long" style="color:black;"></i>
+                Fund Wallet</span>
+        </a>
+   
+        <div class="modal_overlay"  id="fund_modal">
+            <div class="modal_content">
+                <div class="modal-header">
+                    <h3 style="color: black;">Add Bank</h3>
+                    <p onclick="closeFundModal()" class="close-btn">x</p>
+                </div>
+                <form action="#" method="POST" id="fund-form">
+                    <div class="form-group">
+                        <input type="text" id="sendAccount" placeholder="">
+                        <span class="placeholder-text">Account Number of Sender</span>
+                    </div>
+                    <div class="form-group">
+                        <select id="senderBank">
+                            <option value="" disabled selected>Bank Name</option>
+                            <option value="access">Access Bank</option>
+                            <option value="gtb">GTBank</option>
+                            <option value="zenith">Zenith Bank</option>
+                            <option value="firstbank">First Bank</option>
+                            <option value="uba">UBA</option>
+                            <option value="fidelity">Fidelity Bank</option>
+                            <option value="providus">Providus Bank</option>
+                            <option value="fcmb">First City Monument Bank (FCMB)</option>
+                            <option value="union">Union Bank</option>
+                        </select>
+                        <span class="placeholder-text">Bank Name of Sender</span>
+                    </div>    
+
+           
+            <div class="form-group">
+                <input type="text" id="receiveAccount" placeholder="" readonly>
+                <span class="placeholder-text">Account Number of Receiver</span>
+            </div> 
+                  
+                    <div class="form-group">
+                        <input type="number" id="fund-amount" placeholder="">
+                        <span class="placeholder-text">Amount</span>
+                    </div>  
+                    <div class="form-group">
+                            <input  id="otp" placeholder="">
+                            <span class="placeholder-text">OTP</span>
+                        </div>
+                    
+                    <div class="form-group">
+                     
+                        <div class="pin-container">
+                          
+                            <input  id="pin" placeholder="">
+                            <span class="placeholder-text">PIN</span>
+                        </div>
+                       
                     </div>
                     
-                    <p>No transactions</p>
-                </section>  
+                    <button type="submit" class="next-btn" id="submit">Fund</button>
+                </form>
+            </div>
+        </div>
+    
+       
+        <a href="#" class="apps" id="request" onclick="openRequestModal()">
+            <span>
+                <i class="fa-solid fa-down-long" style="color:black;"></i>
+                Request</span>
+        </a>
+        
+<div class="modal_overlay"  id="request_modal">
+
+<div class="modal_content">
+    <div class="modal-header">
+
+        <h4 class="h4">Request</h4>
+        <p onclick="closeRequestModal()" class="close-btn">x</p>
     </div>
-   3
-</main>
- </body>
-</html>
+    <div class="request">
+        <a class="savings" id="safe" onclick="openSavings()">
+            <i class="fa-solid fa-piggy-bank" style="color: black;"></i>
+            <span class="save">Personal Savings</span>
+        </a>
+        <div class="modal_overlay"  id="save_modal" >
+            <div class="modal_content">
+                <div class="modal-header">
+                    <i class="fa-solid fa-arrow-left" style="color: black;" onclick="backToRequestModal()" ></i>
+                    <h2>Request to Save</h2>
+                    
+            <p onclick="closeSavings()" class="close-btn">x</p>
+
+                    </div>
+                    <form action="#" method="POST" id="save">
+                        <div class="form-name">
+                            <label for="number"></label>
+                            <input type="text" id="count" placeholder="accountNumber">
+                            <span class="placeholder-text">Account Number</span>
+                        </div>
+    
+                        <div class="form-name">
+                            <label for="select-bank"></label>
+                            <select id="select-bank">
+                                <option value="" disabled selected>Select Bank</option>
+                                <option value="access">Access Bank</option>
+                                <option value="gtb">GTBank</option>
+                                <option value="zenith">Zenith Bank</option>
+                                <option value="firstbank">First Bank</option>
+                               
+                            </select>
+                            <span class="placeholder-text"> Bank Name of Recipient</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="bday"></label>
+                            <input type="datetime-local" id="bday" placeholder="Select Date and Time">
+                            <span class="placeholder-text">Select a time and date to Start</span>
+                        </div>
+                        
+                        <div class="form-name">
+                            <label for="months"></label>
+                            <input type="text" id="months" placeholder="Specify duration">
+                            <span class="placeholder-text">Months to save for</span>
+                        </div>
+                        <button class="button">Start Saving</button>
+                        </form>
+                    </div>
+                    </div>
     
 
+        <a href="#" class="Loan" id="loan" onclick="openLoan()">
+            <i class="fa-solid fa-sack-dollar"  style="color: black;"></i>
+        <span class="loan">Group Savings</span>
+
+        </a>
+    </div>
+</div>
+</div>
+
+</div>
+<!-- <div class="notification-banner">
+    ⚠️ You need to <a href="#">Verify your Email</a> to perform a transaction
+</div> -->
+<div class="account">
+    <div class="user-info">
+        <h3  class="u">Hello,<strong id="firstName"></strong></h3>
+        <p class="acc-right">Fund Account<br>
+            <strong id="accountNumber"></strong></p>
+    </div>  
+
+    <div class="balance-info">
+        <p class="acc-left">
+            Available Balance 
+            <i class="fa-solid fa-eye" id="eye-icon" style="color:#12ab12;" onclick="toggleBalanceVisibility()"></i>
+            <br><strong id="availableBalance"></strong>
+        </p>
+        
+       
+        <p class="acc-left">Contributed  Balance 
+            <i class="fa-solid fa-eye" id="eye-icon2" style="color:#12ab12" onclick="toggleContributedVisibility()"></i>
+            <br><strong id="totalBalance"></strong>
+        </p>
+    </div> 
+</div>
+<!-- <section class="transaction">
+    <div class="search-box">
+        <h2>Transaction History</h2>
+        <div class="search-input">
+            <input type="text" placeholder="Search by reference id">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+    
+    <p>No transactions</p>
+</section>   -->
+</div>
+<div class="right-panel">
+                   
+    <div class="service-list">
+        <button class="service-btn">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span class="span">Utility Bills</span>
+        </button>
+        <button class="service-btn">
+            <i class="fa-solid fa-tv"></i>
+            <span class="span">Cable</span>
+        </button>
+        <button class="service-btn">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span class="span">Airtime</span>
+        </button>
+        <button class="service-btn">
+            <i class="fa-solid fa-wifi"></i>
+            <span class="span">Data</span>
+        </button>
+        <!-- <button class="service-btn">
+            <i class="fa-solid fa-chess"></i>
+            <span class="span">Betting</span>
+        </button> -->
+        <button class="service-btn">
+            <i class="fa-solid fa-plus-circle"></i>
+            <span class="span">Epin</span>
+        </button>
+    </div>
+
+    <div class="download">
+        <p>Download our App</p>
+        <h6>Download our mobile aplication for better 
+        experience and to receive custom notifications in real time</h6>
+        <div class="store-liks">
+            <a href="#" class="ap-link">
+                <i class="fa-brands fa-apple" style="color: white;"></i>
+            <span class="apple">Download on <br>the App Store</span>
+            </a>
+            <a href="#" class="play-link">
+                <i class="fa-brands fa-google-play"></i>
+                <span class="playstore">Get it on the<br> Play Store</span>
+            </a>
+        </div>
+       
+    </div>
+    
+</div>
+</div>
+
+</div>
+
   
+           
+                  
+
+<script >
+    function logout(){
+        localStorage.removeItem("firstName")
+        localStorage.removeItem("token")
+        localStorage.removeItem("userAccountNumber")
+        window.location.href = "login.html"
+    }
+       
+ document.addEventListener("DOMContentLoaded", function() {
+       
+       const email = localStorage.getItem("email");
+       console.log(email);
+       const jwtToken = localStorage.getItem("token");
+
+       
+   
+       
+       if (!email) {
+           window.location.href = "login.html";
+       }
+   
+   
+    //   const FirstName = localStorage.getItem("firstName")    
+       fetch(`http://localhost:8080/email/${email}`,{
+        method:"GET",
+        credentials: "include",
+        headers: {
+            Authorization: "Bearer " + jwtToken
+
+
+        }
+       })
+           .then(response => response.json())
+           .then(data => {
+             
+               document.querySelectorAll("#firstName").forEach(el => {
+                   el.textContent = data.firstName;
+               });
+   
+               
+               document.querySelectorAll("#accountNumber").forEach(el =>{
+                   el.textContent = data.accountNumber;
+               });
+            
+               document.getElementById("availableBalance").textContent = data.availableBalance;
+               document.getElementById("totalBalance").textContent = data.totalBalance;
+              
+   
+               localStorage.setItem("userAccountNumber",data.accountNumber)
+             
+           })
+          
+           .catch(error => console.error("Error loading dashboard:", error));
+   });
+   
+   
+   document.getElementById('payment-link').addEventListener('click', function(event) {
+      
+       event.preventDefault();
+   
+      
+       location.reload();
+       
+       
+       window.location.href = "dash.html";
+   });
+   
+
+   const transfer_modal = document.getElementById('transfer_modal')
+   const fund_modal = document.getElementById('fund_modal')
+   const request_modal = document.getElementById('request_modal')
+   const save_modal=document.getElementById('save_modal')
+   function openTransferModal() {
+    transfer_modal.style.display = "flex";
+}
+
+function closeTransferModal() {
+    transfer_modal.style.display = "none";
+}
+
+function openFundModal() {
+    fund_modal.style.display = "flex";
+}
+
+function closeFundModal() {
+    fund_modal.style.display = "none";
+}
+
+function openRequestModal() {
+    request_modal.style.display = "flex";
+}
+
+function closeRequestModal() {
+    request_modal.style.display = "none";
+}
+function openSavings(){
+    save_modal .style.display = "flex";
+  
+  
+}
+function closeSavings() {
+    save_modal.style.display = "none";
+}
+
+function backToRequestModal() {
+    save_modal.style.display = "none"; 
+    request_modal.style.display = "flex";
+    }
+   
+   
+    
+   
+    // PIN Inputs Logic
+    const pinInputs = document.querySelectorAll('.pin-input');
+    pinInputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === 1 && index < pinInputs.length - 1) {
+                pinInputs[index + 1].focus();
+            }
+            if (input.value.length === 0 && index > 0) {
+                pinInputs[index - 1].focus();
+            }
+        });
+    });
+   
+   
+   
+   
+   
+   
+       document.getElementById("transfer-form").addEventListener("submit",function(event){
+           event.preventDefault(); 
+   
+           const senderAccount=localStorage.getItem("userAccountNumber");
+           if(senderAccount){
+               document.getElementById("senderAccount").value=senderAccount;
+           }
+e.error("Receiver account not found in localStorage.");
+// }
+           const receiverAccount= document.getElementById("account-number").value;
+           const amount= document.getElementById("amount").value;
+           const note= document.getElementById("note").value;
+           const pin= document.getElementById("pin1").value + document.getElementById("pin2").value+
+                       document.getElementById("pin3").value + document.getElementById("pin4").value;
+   
+   
+                       fetch("http://localhost:8080/transfer",{
+                           method:"POST",
+                           headers:{
+                               "Content-Type":"application/json"
+                           },
+                           body:JSON.stringify({
+                               senderAccount:senderAccount,
+                               receiverAccount:receiverAccount,
+                               amount:parseFloat(amount),
+                               note:note,
+                               pin:pin
+                           })
+                       })
+                       .then(response=> response.json())
+                       .then(data=>{
+                       })
+                       .catch(error => console.error("Error: ", error));
+                       window.location.href="dash.html";
+   
+   
+       });
+    
+ 
+   document.getElementById("fund-form").addEventListener("submit", function(event){
+    event.preventDefault();
+
+
+    
+     
+const receiveAccount = localStorage.getItem("userAccountNumber");
+if (receiveAccount) {
+    document.getElementById("receiveAccount").value = receiveAccount;
+} else {
+    console.error("Receiver account not found in localStorage.");
+}
+
+    
+     const account=document.getElementById("sendAccount").value;
+     const  bank=document.getElementById("senderBank").value;
+     const amount=document.getElementById("fund-amount").value;
+     const otp = document.getElementById("otp").value;
+     const pin = document.getElementById("pin").value;
+                       fetch("http://localhost:8080/fundwallet",{
+                                method:"POST",
+                                headers:{
+                                "Content-Type":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    senderAccount: account,
+                                    senderBank: bank,
+                                    receiverAccount:receiveAccount,
+                                    amount: parseFloat(amount),
+                                    otp: parseInt(otp),
+                                    pin: parseInt(pin)
+                          
+    })  
+   })
+   .then(response => response.json())
+    .then(data => {
+        window.location.href = "dash.html";
+    })
+    .catch(error => {
+        console.error("Error: ", error);
+        alert("There was an error processing your request. Please try again.");
+    });
+});
+ 
+function toggleBalanceVisibility() {
+    var balanceElement = document.getElementById("availableBalance");
+    var eyeIcon = document.getElementById("eye-icon");
+
+    // Toggle the visibility of the balance
+    if (balanceElement.style.display === "none") {
+        balanceElement.style.display = "block";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    } else {
+        balanceElement.style.display = "none";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    }
+}
+function toggleContributedVisibility() {
+    var balanceElement = document.getElementById("totalBalance");
+    var eyeIcon = document.getElementById("eye-icon2");
+
+    // Toggle the visibility of the balance
+    if (balanceElement.style.display === "none") {
+        balanceElement.style.display = "block";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    } else {
+        balanceElement.style.display = "none";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    }
+}
+
+
+   
+
+</script>
+</body>
+</html>

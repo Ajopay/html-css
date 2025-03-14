@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal_overlay" style="visibility: hidden;" id="transfer_modal" >
+        <div class="modal_content">
+            <div class="modal-header">
+                <h2>Request to Save</h2>
+                </div>
+                <form action="#" method="POST" id="save">
+                    <div class="form-name">
+                        <label for="number"></label>
+                        <input type="text" id="account" placeholder="accountNumber">
+                        <span class="placeholder-text">Account Number</span>
+                    </div>
+
+                    <div class="form-name">
+                        <label for="select-bank"></label>
+                        <select id="select-bank">
+                            <option value="" disabled selected>Select Bank</option>
+                            <option value="access">Access Bank</option>
+                            <option value="gtb">GTBank</option>
+                            <option value="zenith">Zenith Bank</option>
+                            <option value="firstbank">First Bank</option>
+                           
+                        </select>
+                        <span class="placeholder-text"> Bank Name of Recipient</span>
+                    </div>
+                    <div class="years">
+                        <label for="bday"></label>
+                        <input type="date"  id="bday" ><br>
+                    </div>
+                    <div class="form-name">
+                        <label for="months"></label>
+                        <input type="text" id="months" placeholder="Specify duration">
+                        <span class="placeholder-text">Months to save for</span>
+                    </div>
+                    <button>Start Saving</button>
+                    </form>
+                </div>
+                </div>
+</body>
+</html>

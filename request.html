@@ -1,0 +1,59 @@
+
+    <div class="modal_overlay"  id="request_modal">
+        <div class="modal_content">
+            <div class="modal-header">
+                <h4 class="h4">Request</h4>
+                <p onclick="closeRequestModal()" class="close-btn">x</p>
+            </div>
+            <div class="request">
+                <a class="savings" id="safe" onclick="openSavings()">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <span class="save">Savings</span>
+                </a>
+                <div class="modal_overlay" style="visibility: hidden;" id="transfer_modal" >
+                    <div class="modal_content">
+                        <div class="modal-header">
+                            <h2>Request to Save</h2>
+                            </div>
+                            <form action="#" method="POST" id="save">
+                                <div class="form-name">
+                                    <label for="number"></label>
+                                    <input type="text" id="account" placeholder="accountNumber">
+                                    <span class="placeholder-text">Account Number</span>
+                                </div>
+            
+                                <div class="form-name">
+                                    <label for="select-bank"></label>
+                                    <select id="select-bank">
+                                        <option value="" disabled selected>Select Bank</option>
+                                        <option value="access">Access Bank</option>
+                                        <option value="gtb">GTBank</option>
+                                        <option value="zenith">Zenith Bank</option>
+                                        <option value="firstbank">First Bank</option>
+                                       
+                                    </select>
+                                    <span class="placeholder-text"> Bank Name of Recipient</span>
+                                </div>
+                                <div class="years">
+                                    <label for="bday"></label>
+                                    <input type="date"  id="bday" ><br>
+                                </div>
+                                <div class="form-name">
+                                    <label for="months"></label>
+                                    <input type="text" id="months" placeholder="Specify duration">
+                                    <span class="placeholder-text">Months to save for</span>
+                                </div>
+                                <button>Start Saving</button>
+                                </form>
+                            </div>
+                            </div>
+            
+
+                <a href="#" class="Loan" id="loan" onclick="openLoan()">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span class="loan">Loan</span>
+                </a>
+            </div>
+        </div>
+    </div>
+   

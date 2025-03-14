@@ -1,0 +1,82 @@
+
+ h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Account Number Styling */
+#account {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: left;
+    background-color: #333; /* Added background to contrast text */
+    padding: 10px; /* Added padding for better UX */
+    border-radius: 5px; /* Rounded corners for better look */
+}
+
+/* Label Styling */
+label {
+    font-weight: lighter;
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    color: #333;
+    margin-bottom: 5px; /* Added margin to space out labels from inputs */
+}
+
+/* Input and Select Styling */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; /* Slightly adjusted margin for consistency */
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px; /* Added rounded corners for inputs */
+}
+
+/* Focus State for Inputs/Select */
+input:focus, select:focus {
+    border-color: #12ab12;
+}button {
+    width: 100%;
+    background-color: #12ab12; /* Vibrant orange */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #12ab12; /* Darker shade of orange */
+    transform: scale(1.02);
+}
+
+button:active {
+    background-color: hsl(120, 76%, 45%);
+    transform: scale(0.98);
+}
+
+
+/* Additional Styling for Inputs */
+input, select {
+    background-color: #f9f9f9; /* Light background for inputs */
+}

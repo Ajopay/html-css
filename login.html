@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AjoPay Login</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <!-- <img src="logo.png" alt="WayaBank Logo">  -->
+        <h2><span class="orange">Ajo</span>Pay</h2>
+      </div>
+      <p class="tagline">Pay with convenience</p>
+
+      <!-- <h3>Login as a</h3>
+        <div class="toggle-buttons">
+            <button class="active">Personal</button>
+           
+        </div> -->
+
+      <form id="loginForm">
+        <label>Email or Phone</label>
+        <input type="text" id="email" placeholder="2348020000000" />
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Password" />
+
+        <button type="submit" class="loginbtn">Login</button>
+      </form>
+
+      <p class="links">
+        Don't have an account? <a href="user.html">Sign up instead</a> <br />
+        <a href="#">Forgot your password?</a>
+      </p>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", submitForm);
+
+      async function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const userlog = {
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        };
+
+        try {
+          const response = await fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userlog)
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Login successful:", data);
+
+            alert("Login successful");
+            window.location.href = "dash.html"; // Redirect to the dashboard
+            localStorage.setItem("email", data.email);
+            localStorage.setItem("token", data.jwtToken);
+          } else {
+            const errorData = await response.json();
+            console.error(
+              "Login failed:",
+              errorData.message || "Unknown error"
+            );
+            alert("Login failed: " + (errorData.message || "Unknown error"));
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+        }
+      }
+    </script>
+  </body>
+</html>

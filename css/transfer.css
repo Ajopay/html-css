@@ -1,0 +1,119 @@
+form {
+          
+    padding: 25px;
+    border-radius: 8px;
+    
+}
+
+.form-transfer {
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.form-transfer label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-transfer input,
+.form-transfer select {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.form-transfer input:focus,
+.form-transfer select:focus {
+    border-bottom: 2px solid #12ab12;
+}
+
+.placeholder-text {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.otp-container {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+/* Disabled Field */
+input[disabled] {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+
+/* Button */
+.next-btn {
+    background-color: #12ab12;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    background-color:#12ab12d0 ;
+}
+
+
+@media (max-width: 400px) {
+    .transfer-container {
+        width: 90%;
+    }
+}
+
+
+.pin-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.pin-input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    position: relative;
+}
+
+.pin-input:focus {
+    border-color: #12ab12;
+}
+
+/* Dash Animation */
+.pin-input:valid {
+    animation: dash-in 0.4s ease forwards;
+}
+
+@keyframes dash-in {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+.pin-input::placeholder {
+    color: transparent; /* Hide the placeholder */
+}
